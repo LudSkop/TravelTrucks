@@ -1,0 +1,82 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 64px;
+  background-color: #f0f0f0;
+  padding: 16px 32px;
+
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.navigationLink {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}
+
+.navWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header a[aria-label="Home"] {
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.header a[aria-label="Home"]:hover {
+  color: #829b91;
+}
+
+/* Навігація */
+.navigation {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Лінки */
+.navigation a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #101828;
+
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Hover ефект */
+.navigation a:hover {
+  color: #829b91;
+}
+
+/* Підкреслення при ховері */
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+  background-color: #829b91;
+
+  transition: width 0.2s ease;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
