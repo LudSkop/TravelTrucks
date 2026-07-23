@@ -1,34 +1,55 @@
-.container {
-  min-height: 100vh;
+.hero {
+  min-height: calc(100vh - 72px);
+  background-image: url("/images/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 16px;
-  text-align: center;
-  background-color: #f8f9fa;
-  padding: 20px;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
 }
 
 .title {
+  font-weight: 600;
   font-size: 48px;
-  font-weight: 500;
-  color: #111827;
-  margin: 0;
+  line-height: 0.6;
+  color: #f7f7f7;
 }
 
 .description {
-  font-size: 18px;
-  color: #6b7280;
-  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #f7f7f7;
+  margin-top: 16px;
+  margin-bottom: 40px;
 }
 .button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #3b82f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+
+  width: 173px;
+  height: 56px;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 200px;
+  background: #829b91;
+  transition: background-color 250ms ease;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.button:hover,
+.button:focus {
+  background: #6d7b75;
 }

@@ -4,12 +4,9 @@
   align-items: center;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 24px 64px;
-  background-color: #f0f0f0;
-  padding: 16px 32px;
-
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0 64px;
+  height: 72px;
+  background-color: #f7f7f7;
 }
 .navigationLink {
   font-weight: 500;
@@ -53,7 +50,6 @@
   font-size: 15px;
   font-weight: 500;
   color: #101828;
-
   position: relative;
   transition: color 0.2s ease;
 }
