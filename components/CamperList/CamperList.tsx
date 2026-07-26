@@ -109,7 +109,12 @@ export default function CamperList({
                 </span>
               ))}
             </div>
-            <Link href={`/catalog/${camper.id}`} className={css.showMore}>
+            <Link
+              href={`/catalog/${camper.id}`}
+              className={css.showMore}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Show more
             </Link>
           </div>

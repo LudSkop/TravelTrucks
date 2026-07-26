@@ -37,3 +37,42 @@ export type GetCampersResponse = {
   totalPages: number;
   campers: Camper[];
 };
+
+export type CamperImage = {
+  id: string;
+  camperId: string;
+  thumb: string;
+  original: string;
+  order: number;
+};
+
+export type CamperDetails = {
+  id: string;
+  name: string;
+  price: number;
+  rating: number;
+  totalReviews: number;
+  location: string;
+  description: string;
+  form: CamperForm;
+  length: string;
+  width: string;
+  height: string;
+  tank: string;
+  consumption: string;
+  transmission: Transmission;
+  engine: Engine;
+  amenities: Amenity[];
+  gallery: CamperImage[];
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type Review = {
+  id: string;
+  camperId: string;
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+  createdAt: string;
+};
