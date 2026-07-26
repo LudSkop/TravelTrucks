@@ -3,13 +3,13 @@
   flex-direction: column;
   gap: 16px;
   padding: 24px;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
 }
 
 .card {
   display: flex;
   gap: 20px;
-  background: #ffffff;
+  background-color: #f7f7f7;
   border-radius: 16px;
   padding: 16px;
   box-shadow:
