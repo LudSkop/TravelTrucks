@@ -5,7 +5,7 @@ import CamperList from "@/components/CamperList/CamperList";
 import css from "./CatalogPage.module.css";
 import { getCampers } from "@/lib/campers";
 import { useState } from "react";
-import { Camper } from "@/types/camper";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 export default function CatalogPage() {
   const [filters, setFilters] = useState({
@@ -15,27 +15,34 @@ export default function CatalogPage() {
     engine: "",
   });
 
-  const [campers, setCampers] = useState<Camper[]>([]);
+  const [searchFilters, setSearchFilters] = useState(filters);
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["campers", searchFilters],
 
-  const fetchCampers = async () => {
-    try {
-      const data = await getCampers({
-        page: 1,
-        perPage: 4,
-        ...filters,
-      });
+      queryFn: ({ pageParam = 1 }) =>
+        getCampers({
+          page: pageParam,
+          perPage: 4,
+          ...searchFilters,
+        }),
 
-      setCampers(data.campers);
-    } catch (error) {
-      console.error("Failed to fetch campers:", error);
-    }
-  };
+      initialPageParam: 1,
+
+      getNextPageParam: (lastPage) => {
+        if (lastPage.page < lastPage.totalPages) {
+          return lastPage.page + 1;
+        }
+
+        return undefined;
+      },
+    });
+  const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
   const handleSearch = () => {
-    fetchCampers();
+    setSearchFilters(filters);
   };
-
-  const handleClear = async () => {
+  const handleClear = () => {
     const clearedFilters = {
       location: "",
       form: "",
@@ -44,19 +51,13 @@ export default function CatalogPage() {
     };
 
     setFilters(clearedFilters);
-
-    try {
-      const data = await getCampers({
-        page: 1,
-        perPage: 4,
-        ...clearedFilters,
-      });
-
-      setCampers(data.campers);
-    } catch (error) {
-      console.error("Failed to fetch campers:", error);
-    }
+    setSearchFilters(clearedFilters);
   };
+  console.log({
+    hasNextPage,
+    lastPage: data?.pages[data.pages.length - 1],
+  });
+
   return (
     <main className={css.catalog}>
       <Filters
@@ -66,7 +67,12 @@ export default function CatalogPage() {
         onClear={handleClear}
       />
 
-      <CamperList campers={campers} />
+      <CamperList
+        campers={campers}
+        hasNextPage={hasNextPage}
+        fetchNextPage={fetchNextPage}
+        isFetchingNextPage={isFetchingNextPage}
+      />
     </main>
   );
 }

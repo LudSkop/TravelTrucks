@@ -7,6 +7,9 @@ import { Camper } from "@/types/camper";
 
 type CamperListProps = {
   campers: Camper[];
+  hasNextPage: boolean;
+  fetchNextPage: () => Promise<unknown>;
+  isFetchingNextPage: boolean;
 };
 
 const DESCRIPTION_LIMIT = 50;
@@ -39,7 +42,12 @@ function getCamperTags(camper: Camper) {
     },
   ];
 }
-export default function CamperList({ campers }: CamperListProps) {
+export default function CamperList({
+  campers,
+  hasNextPage,
+  fetchNextPage,
+  isFetchingNextPage,
+}: CamperListProps) {
   return (
     <section className={css.grid}>
       {campers.map((camper) => (
@@ -101,13 +109,21 @@ export default function CamperList({ campers }: CamperListProps) {
                 </span>
               ))}
             </div>
-            <Link href="/catalog" className={css.showMore}>
+            <Link href={`/catalog/${camper.id}`} className={css.showMore}>
               Show more
             </Link>
           </div>
         </div>
       ))}
-      <button className={css.loadMore}>Load More</button>
+      {hasNextPage && (
+        <button
+          className={css.loadMore}
+          onClick={fetchNextPage}
+          disabled={isFetchingNextPage}
+        >
+          {isFetchingNextPage ? "Loading..." : "Load More"}
+        </button>
+      )}
     </section>
   );
 }
