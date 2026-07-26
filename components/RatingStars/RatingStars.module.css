@@ -1,0 +1,24 @@
+.stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.starWrapper {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.starBase {
+  color: #d9d9d9;
+}
+
+.starFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffc531;
+}

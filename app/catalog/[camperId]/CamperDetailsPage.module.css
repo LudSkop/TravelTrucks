@@ -1,0 +1,198 @@
+.wrapper {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.topRow,
+.bottomRow {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.galleryCol,
+.reviewsCol {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoCol,
+.bookingCol {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 0 0 400px;
+}
+
+.reviewsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* --- Info card (name, rating, price, description) --- */
+.infoCard {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.meta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+/* --- Vehicle details card (tags + specs table) --- */
+.detailsCard {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.detailsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  background: #e6e6e6;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.specs {
+  margin: 0;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.specRow:first-child {
+  border-top: none;
+}
+
+.specLabel {
+  color: #333;
+  font-weight: 500;
+}
+
+.specValue {
+  color: #555;
+}
+
+/* --- Review card --- */
+.reviewCard {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.reviewBody {
+  flex: 1;
+}
+
+.reviewerName {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.reviewComment {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0 0;
+  line-height: 1.5;
+}

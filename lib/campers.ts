@@ -1,12 +1,12 @@
 import { api } from "./api";
-import { Camper } from "../types/camper";
+import { Camper, CamperDetails, Review } from "../types/camper";
 
 interface GetCampersResponse {
   page: number;
   perPage: number;
   total: number;
   totalPages: number;
-  campers: Camper[]; // якщо тип Camper вже десь визначений — імпортувати звідти
+  campers: Camper[];
 }
 interface GetCampersParams {
   page?: number;
@@ -39,5 +39,37 @@ export const getCampers = async ({
     params,
   });
 
+  return data;
+};
+
+export const getCamperById = async (
+  camperId: string,
+): Promise<CamperDetails> => {
+  const { data } = await api.get<CamperDetails>(`/campers/${camperId}`);
+  return data;
+};
+
+export const getCamperReviews = async (camperId: string): Promise<Review[]> => {
+  const { data } = await api.get<Review[]>(`/campers/${camperId}/reviews`);
+  return data;
+};
+
+export interface BookingRequestPayload {
+  name: string;
+  email: string;
+}
+
+export interface BookingRequestResponse {
+  message: string;
+}
+
+export const createBookingRequest = async (
+  camperId: string,
+  payload: BookingRequestPayload,
+): Promise<BookingRequestResponse> => {
+  const { data } = await api.post<BookingRequestResponse>(
+    `/campers/${camperId}/booking-requests`,
+    payload,
+  );
   return data;
 };
