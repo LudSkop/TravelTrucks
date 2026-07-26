@@ -47,13 +47,13 @@ export default async function CamperDetailsPage({ params }: PageProps) {
           <div className={css.detailsCard}>
             <h2 className={css.detailsTitle}>Vehicle details</h2>
             <ul className={css.tags}>
-              <li className={css.tag}>{camper!.transmission}</li>
-              {camper!.amenities.map((a) => (
-                <li key={a} className={css.tag}>
-                  {a}
-                </li>
-              ))}
-              <li className={css.tag}>{camper!.engine}</li>
+              {[camper!.transmission, ...camper!.amenities, camper!.engine]
+                .slice(0, 6)
+                .map((tag, index) => (
+                  <li key={`${tag}-${index}`} className={css.tag}>
+                    {tag}
+                  </li>
+                ))}
             </ul>
             <dl className={css.specs}>
               <div className={css.specRow}>
