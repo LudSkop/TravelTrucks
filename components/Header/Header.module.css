@@ -1,78 +1,89 @@
 .header {
-  position: relative;
   display: flex;
   align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 64px;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
   height: 72px;
+  margin: 0 auto;
+  padding: 0 16px;
+
   background-color: #f7f7f7;
 }
-.navigationLink {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
-  color: #101828;
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
 }
 
-.navWrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.header a[aria-label="Home"] {
-  font-size: 20px;
-  font-weight: 700;
-  color: #101828;
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-.header a[aria-label="Home"]:hover {
-  color: #829b91;
-}
-
-/* Навігація */
 .navigation {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 16px;
+
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Лінки */
-.navigation a {
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  color: #101828;
+.navigationLink {
   position: relative;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #101828;
+  white-space: nowrap;
+  text-decoration: none;
+
   transition: color 0.2s ease;
 }
 
-/* Hover ефект */
-.navigation a:hover {
+.navigationLink:hover {
   color: #829b91;
 }
 
-/* Підкреслення при ховері */
-.navigation a::after {
+.navigationLink::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
 
-  width: 0%;
+  width: 0;
   height: 2px;
   background-color: #829b91;
 
   transition: width 0.2s ease;
 }
 
-.navigation a:hover::after {
+.navigationLink:hover::after {
   width: 100%;
+}
+
+.navigationLink:focus-visible {
+  outline: 2px solid #829b91;
+  outline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .navigation {
+    gap: 24px;
+  }
+
+  .navigationLink {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    max-width: 1040px;
+    padding: 0 64px;
+  }
 }
