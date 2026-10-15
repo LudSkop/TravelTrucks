@@ -1,15 +1,18 @@
+.headerWrapper {
+  background-color: #f7f7f7;
+}
+
+/* Mobile: від 320px гумовий */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-
+  gap: clamp(8px, 4vw, 16px);
   width: 100%;
+  max-width: 1280px;
   height: 72px;
   margin: 0 auto;
   padding: 0 16px;
-
-  background-color: #f7f7f7;
 }
 
 .logo {
@@ -20,8 +23,8 @@
 .navigation {
   display: flex;
   align-items: center;
-  gap: 16px;
-
+  gap: clamp(12px, 4.3vw, 16px);
+  min-width: 0;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,19 +32,13 @@
 
 .navigationLink {
   position: relative;
-
-  font-size: 14px;
+  font-size: clamp(13px, 3.75vw, 14px);
   font-weight: 500;
   line-height: 1.5;
   color: #101828;
   white-space: nowrap;
   text-decoration: none;
-
   transition: color 0.2s ease;
-}
-
-.navigationLink:hover {
-  color: #829b91;
 }
 
 .navigationLink::after {
@@ -49,26 +46,51 @@
   position: absolute;
   left: 0;
   bottom: -4px;
-
   width: 0;
   height: 2px;
   background-color: #829b91;
-
   transition: width 0.2s ease;
 }
 
-.navigationLink:hover::after {
-  width: 100%;
-}
-
 .navigationLink:focus-visible {
+  color: #829b91;
   outline: 2px solid #829b91;
   outline-offset: 4px;
 }
 
+.navigationLink:focus-visible::after,
+.navigationLink[aria-current="page"]::after {
+  width: 100%;
+}
+
+@media (hover: hover) {
+  .navigationLink:hover {
+    color: #829b91;
+  }
+
+  .navigationLink:hover::after {
+    width: 100%;
+  }
+}
+
+/* Mobile: від 375px адаптивний (фіксовані значення) */
+@media (min-width: 375px) {
+  .header {
+    gap: 16px;
+  }
+
+  .navigation {
+    gap: 16px;
+  }
+
+  .navigationLink {
+    font-size: 14px;
+  }
+}
+
+/* Tablet: від 768px */
 @media (min-width: 768px) {
   .header {
-    max-width: 768px;
     padding: 0 32px;
   }
 
@@ -81,9 +103,9 @@
   }
 }
 
-@media (min-width: 1200px) {
+/* Desktop: від 1280px */
+@media (min-width: 1280px) {
   .header {
-    max-width: 1400px;
     padding: 0 64px;
   }
 }
