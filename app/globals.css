@@ -39,7 +39,6 @@ button {
 }
 
 html {
-  min-width: 1440px;
   background: var(--white);
 }
 
@@ -51,7 +50,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+
+  overflow-y: clip;
 }
 
 button,
