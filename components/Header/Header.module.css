@@ -6,7 +6,7 @@
 .header {
   display: flex;
   align-items: center;
-  max-width: 1280px;
+  max-width: 1200px;
   justify-content: space-between;
   gap: clamp(8px, 4vw, 16px);
   width: 100%;
