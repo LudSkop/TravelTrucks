@@ -6,10 +6,10 @@
 .header {
   display: flex;
   align-items: center;
+  max-width: 1280px;
   justify-content: space-between;
   gap: clamp(8px, 4vw, 16px);
   width: 100%;
-  max-width: 1280px;
   height: 72px;
   margin: 0 auto;
   padding: 0 16px;
