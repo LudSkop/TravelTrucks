@@ -44,6 +44,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   color: var(--text);
   background: var(--white);
   font-family: var(--font-inter), Inter, Arial, sans-serif;
