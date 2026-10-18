@@ -1,17 +1,24 @@
+/* ===== Mobile: 320-374px (гумовий) ===== */
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px;
+  gap: clamp(12px, 4vw, 16px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  min-width: 0;
   background-color: #ffffff;
 }
 
 .card {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: clamp(12px, 4vw, 16px);
+  min-width: 0;
+  padding: clamp(12px, 4vw, 16px);
   background-color: #f7f7f7;
   border-radius: 16px;
-  padding: 16px;
   box-shadow:
     0 1px 3px rgba(46, 40, 30, 0.05),
     0 6px 18px rgba(46, 40, 30, 0.05);
@@ -20,20 +27,8 @@
     box-shadow 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 4px 8px rgba(46, 40, 30, 0.07),
-    0 12px 28px rgba(46, 40, 30, 0.08);
-}
-.location {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
 .imageWrap {
-  flex: 0 0 220px;
+  width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: 12px;
   overflow: hidden;
@@ -41,14 +36,13 @@
 }
 
 .imageWrap img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -59,21 +53,23 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .name {
   margin: 0;
   font-family: "Fraunces", "Georgia", serif;
-  font-size: 1.3rem;
+  font-size: clamp(18px, 5.3vw, 20px);
   font-weight: 600;
   color: #26311f;
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
 }
 
 .price {
   font-family: "Fraunces", serif;
-  font-size: 1.25rem;
+  font-size: clamp(16px, 4.8vw, 18px);
   font-weight: 700;
   color: #26311f;
   white-space: nowrap;
@@ -82,96 +78,227 @@
 .metaRow {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  font-size: clamp(13px, 3.7vw, 14px);
   color: #5b5647;
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 600;
-}
-
-.rating::before {
-  color: #e3a63e;
-}
-
+.rating,
 .location {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.location::before {
-  font-size: 0.9em;
+.rating {
+  font-weight: 600;
 }
 
 .description {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: clamp(13px, 3.7vw, 14px);
   color: #8a8371;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .tags {
   display: flex;
-  gap: 10px;
-  margin-top: 4px;
   flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .tag {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #4a4436;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 6px 14px;
+  padding: 6px 10px;
   border-radius: 999px;
   background-color: #f2f4f7;
-  mix-blend-mode: multiply;
+  color: #4a4436;
+  font-size: clamp(12px, 3.5vw, 13px);
+  font-weight: 500;
 }
+
+.loadMore,
+.showMore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: clamp(13px, 3.7vw, 14px);
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
 .loadMore {
   align-self: center;
-  margin-top: 8px;
   background-color: #f7f7f7;
+  color: #101828;
+  border: 1px solid #dadde1;
   box-shadow:
     0 1px 3px rgba(46, 40, 30, 0.05),
     0 6px 18px rgba(46, 40, 30, 0.05);
-  transition: background-color 250ms ease;
-  color: #101828;
-  border: 1px solid #dadde1;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 999px;
-  transition: background 0.2s ease;
-}
-.loadMore:hover,
-.loadMore:focus {
-  background-color: #f2f4f2;
 }
 
 .showMore {
   align-self: flex-start;
-  margin-top: 8px;
   background: #829b91;
-  transition: background-color 250ms ease;
   color: #ffffff;
   border: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 999px;
-
-  transition: background 0.2s ease;
 }
 
-.showMore:hover,
-.showMore:focus {
+.loadMore:focus-visible,
+.showMore:focus-visible {
+  outline: 2px solid #829b91;
+  outline-offset: 3px;
+}
+
+.loadMore:focus-visible {
+  background-color: #f2f4f2;
+}
+
+.showMore:focus-visible {
   background: #6d7b75;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 8px rgba(46, 40, 30, 0.07),
+      0 12px 28px rgba(46, 40, 30, 0.08);
+  }
+
+  .loadMore:hover {
+    background-color: #f2f4f2;
+  }
+
+  .showMore:hover {
+    background: #6d7b75;
+  }
+}
+
+/* ===== Mobile: від 375px (адаптивний, фіксовані значення) ===== */
+@media (min-width: 375px) {
+  .grid,
+  .card {
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .metaRow,
+  .description,
+  .loadMore,
+  .showMore {
+    font-size: 14px;
+  }
+
+  .tag {
+    font-size: 13px;
+  }
+}
+
+/* Tablet: 768–1199px */
+@media (min-width: 768px) {
+  .grid {
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .imageWrap {
+    flex: 0 0 clamp(160px, 28vw, 220px);
+    width: clamp(160px, 28vw, 220px);
+    aspect-ratio: 4 / 3;
+  }
+
+  .content {
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .headerRow {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .name {
+    font-size: clamp(18px, 2.5vw, 22px);
+  }
+
+  .price {
+    font-size: clamp(17px, 2.2vw, 20px);
+  }
+
+  .metaRow {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .tags {
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Desktop: від 1200px ===== */
+@media (min-width: 1200px) {
+  .grid {
+    padding: 32px 0px;
+    max-width: 1200px;
+  }
+
+  .card {
+    gap: 20px;
+  }
+
+  .imageWrap {
+    flex-basis: 220px;
+    width: 220px;
+  }
+
+  .metaRow {
+    gap: 16px;
+  }
+
+  .tag {
+    padding: 6px 14px;
+  }
 }
