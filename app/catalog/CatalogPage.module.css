@@ -1,7 +1,7 @@
 .catalog {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 2fr);
+
   width: 100%;
 
   margin: 0 auto;
@@ -17,14 +17,12 @@
   .catalog {
     padding: 0px 12px;
     gap: 24px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0fr 2fr;
   }
 }
 
 @media (min-width: 1200px) {
   .catalog {
-    grid-template-columns: 360px minmax(0, 1fr);
-    gap: 54px;
-    padding: 0px 64px;
+    grid-template-columns: 360px minmax(0, 2fr);
   }
 }
