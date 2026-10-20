@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr);
 
-  width: 100%;
+  max-width: 1200px;
 
   margin: 0 auto;
 }
@@ -23,6 +23,7 @@
 
 @media (min-width: 1200px) {
   .catalog {
-    grid-template-columns: 360px minmax(0, 2fr);
+    padding: 0px 32px;
+    grid-template-columns: 360px minmax(0, 3fr);
   }
 }
