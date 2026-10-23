@@ -1,54 +1,20 @@
+/* ===== Mobile (база): одна колонка ===== */
 .wrapper {
-  max-width: 1136px;
-  margin: 0 auto;
-  padding: 40px 16px 80px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 16px 48px;
 }
+
 .topRow,
 .bottomRow {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.galleryCol,
-.reviewsCol {
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.infoCol,
-.bookingCol {
-  flex: 0 0 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.columns {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.leftCol {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.rightCol {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 0 0 400px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
 }
 
 .reviewsSection {
@@ -57,145 +23,199 @@
   gap: 20px;
 }
 
+.galleryCol,
+.infoCol,
+.reviewsCol,
+.bookingCol {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .sectionTitle {
   font-size: 20px;
   font-weight: 600;
-  margin: 0;
+  line-height: 1.2;
 }
 
 /* --- Info card (name, rating, price, description) --- */
-.infoCard {
-  background: #f7f7f7;
-  border-radius: 16px;
-  padding: 24px;
+.infoCard,
+.detailsCard {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 16px;
 }
 
 .name {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 0 0 12px;
+  line-height: 1.33;
+  margin-bottom: 8px;
 }
 
 .meta {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 4px 16px;
   align-items: center;
   margin-bottom: 16px;
   font-size: 14px;
-  color: #555;
+  color: var(--text);
 }
 
 .metaItem {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+}
+
+.star {
+  color: var(--star);
 }
 
 .price {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 0 0 16px;
+  line-height: 1.33;
+  margin-bottom: 16px;
 }
 
 .description {
   font-size: 14px;
-  line-height: 1.6;
-  color: #555;
-  margin: 0;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
 /* --- Vehicle details card (tags + specs table) --- */
-.detailsCard {
-  background: #f7f7f7;
-  border-radius: 16px;
-  padding: 24px;
-}
-
 .detailsTitle {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 0 0 16px;
+  line-height: 1.2;
+  margin-bottom: 16px;
 }
 
 .tags {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 6px;
-  margin: 0 0 20px;
-  padding: 0;
-  list-style: none;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
 }
 
 .tag {
-  background: #e6e6e6;
+  background: var(--badge);
   border-radius: 100px;
   padding: 8px 12px;
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
-  flex-shrink: 0;
+  text-transform: capitalize;
 }
 
 .specs {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .specRow {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-top: 1px solid #e0e0e0;
+  gap: 16px;
   font-size: 14px;
 }
 
-.specRow:first-child {
-  border-top: none;
-}
-
 .specLabel {
-  color: #333;
   font-weight: 500;
 }
 
 .specValue {
-  color: #555;
+  text-align: right;
+  text-transform: capitalize;
 }
 
 /* --- Review card --- */
 .reviewCard {
-  background: #f7f7f7;
-  border-radius: 16px;
-  padding: 20px;
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 16px;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 20px;
   font-weight: 600;
-  color: #333;
-}
-
-.reviewBody {
-  flex: 1;
+  color: var(--accent);
 }
 
 .reviewerName {
-  font-weight: 600;
-  margin: 0 0 4px;
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .reviewComment {
   font-size: 14px;
-  color: #555;
-  margin: 8px 0 0;
   line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ===== Tablet: від 768px — дві колонки ===== */
+@media (min-width: 768px) {
+  .wrapper {
+    gap: 40px;
+    padding: 24px 32px 64px;
+  }
+
+  .topRow,
+  .bottomRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .infoCard,
+  .detailsCard,
+  .reviewCard {
+    padding: 20px;
+  }
+}
+
+/* ===== Desktop: від 1200px ===== */
+@media (min-width: 1200px) {
+  .wrapper {
+    gap: 64px;
+    padding: 40px 64px 80px;
+  }
+
+  .topRow,
+  .bottomRow {
+    gap: 24px;
+  }
+
+  .infoCard,
+  .detailsCard {
+    padding: 24px;
+  }
+
+  .name,
+  .price {
+    font-size: 24px;
+  }
 }
