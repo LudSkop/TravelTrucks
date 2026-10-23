@@ -20,7 +20,7 @@
 .reviewsSection {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .galleryCol,
@@ -190,6 +190,17 @@
     gap: 16px;
   }
 
+  /* Колонки в обох рядах однакової висоти */
+  .topRow,
+  .bottomRow {
+    align-items: stretch;
+  }
+
+  /* Форма тягнеться на висоту колонки з відгуками */
+  .bookingCol > * {
+    flex: 1 1 auto;
+  }
+
   .infoCard,
   .detailsCard,
   .reviewCard {
@@ -197,25 +208,78 @@
   }
 }
 
-/* ===== Desktop: від 1200px ===== */
+/* ===== Desktop: від 1200px (макет 1440, контент 1312) ===== */
 @media (min-width: 1200px) {
   .wrapper {
-    gap: 64px;
-    padding: 40px 64px 80px;
+    gap: 80px;
+    padding: 48px 64px 80px;
   }
 
-  .topRow,
-  .bottomRow {
+  .topRow {
     gap: 24px;
   }
 
+  .bottomRow {
+    gap: 48px;
+  }
+
+  .reviewsSection {
+    gap: 24px;
+  }
+
+  .reviewsCol {
+    gap: 24px;
+  }
+
+  .sectionTitle,
+  .detailsTitle {
+    font-size: 24px;
+  }
+
   .infoCard,
-  .detailsCard {
+  .detailsCard,
+  .reviewCard {
     padding: 24px;
   }
 
   .name,
   .price {
+    font-size: 24px;
+  }
+
+  .meta,
+  .description,
+  .specRow,
+  .reviewComment {
+    font-size: 16px;
+  }
+
+  .detailsTitle {
+    margin-bottom: 24px;
+  }
+
+  .tags {
+    gap: 8px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .reviewCard {
+    gap: 16px;
+  }
+
+  .reviewHeader {
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
     font-size: 24px;
   }
 }

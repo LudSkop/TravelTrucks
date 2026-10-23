@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <section className={css.hero}>
         <div className={css.container}>
           <h1 className={css.title}>Campers of your dreams</h1>
@@ -15,6 +15,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

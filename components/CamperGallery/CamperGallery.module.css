@@ -43,8 +43,33 @@
   object-fit: cover;
 }
 
+/* Від 768px головне фото заповнює висоту, що лишилась після мініатюр */
+@media (min-width: 768px) {
+  .gallery {
+    height: 100%;
+  }
+
+  .mainSwiper {
+    flex: 1 1 auto;
+    min-height: 240px;
+  }
+
+  .mainSlide {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .thumbsSwiper {
+    flex: 0 0 auto;
+  }
+}
+
 @media (min-width: 1200px) {
   .gallery {
-    gap: 16px;
+    gap: 24px;
+  }
+
+  .thumbSlide {
+    aspect-ratio: 136 / 148;
   }
 }
