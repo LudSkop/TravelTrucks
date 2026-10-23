@@ -3,11 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs } from "swiper/modules";
+import { Thumbs } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { CamperImage } from "@/types/camper";
@@ -29,8 +28,7 @@ export default function CamperGallery({ gallery }: CamperGalleryProps) {
   return (
     <div className={css.gallery}>
       <Swiper
-        modules={[Navigation, Thumbs]}
-        navigation
+        modules={[Thumbs]}
         thumbs={{ swiper: thumbsSwiper }}
         className={css.mainSwiper}
       >
@@ -40,7 +38,7 @@ export default function CamperGallery({ gallery }: CamperGalleryProps) {
               src={image.original}
               alt="Camper photo"
               fill
-              sizes="(max-width: 768px) 100vw, 600px"
+              sizes="(max-width: 767px) 100vw, 50vw"
               className={css.mainImage}
             />
           </SwiperSlide>
