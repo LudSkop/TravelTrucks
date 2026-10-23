@@ -51,6 +51,7 @@ export default function CamperGallery({ gallery }: CamperGalleryProps) {
         watchSlidesProgress
         slidesPerView={4}
         spaceBetween={12}
+        breakpoints={{ 1200: { spaceBetween: 32 } }}
         className={css.thumbsSwiper}
       >
         {sortedGallery.map((image) => (

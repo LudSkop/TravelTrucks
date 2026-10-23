@@ -14,11 +14,6 @@
   --white: #ffffff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 *,
 *::before,
 *::after {
@@ -34,10 +29,6 @@ ul {
 button {
   cursor: pointer;
 }
-* {
-  box-sizing: border-box;
-}
-
 html {
   background: var(--white);
 }

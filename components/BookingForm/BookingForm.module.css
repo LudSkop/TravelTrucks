@@ -85,6 +85,16 @@
 
 @media (min-width: 1200px) {
   .form {
-    padding: 44px 36px;
+    padding: 48px 56px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle,
+  .input {
+    font-size: 16px;
   }
 }

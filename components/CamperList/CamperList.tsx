@@ -57,7 +57,8 @@ export default function CamperList({
               src={camper.coverImage}
               alt={camper.name}
               width={292}
-              height={320}
+              height={219}
+              sizes="(max-width: 767px) 100vw, 292px"
             />
           </div>
 

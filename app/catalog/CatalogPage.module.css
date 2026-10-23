@@ -1,29 +1,24 @@
+/* Контейнер сторінки: ширина і бокові відступи (як у Header) */
 .catalog {
   display: grid;
-  grid-template-columns: minmax(0, 2fr);
-
-  max-width: 1200px;
-
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-}
-
-@media (min-width: 375px) {
-  .catalog {
-    padding: 0px 12px;
-  }
+  padding: 0 16px;
 }
 
 @media (min-width: 768px) {
   .catalog {
-    padding: 0px 12px;
     gap: 24px;
-    grid-template-columns: 0fr 2fr;
+    padding: 0 32px;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
   .catalog {
-    padding: 0px 32px;
-    grid-template-columns: 360px minmax(0, 3fr);
+    padding: 0 64px;
+    grid-template-columns: 360px minmax(0, 1fr);
   }
 }

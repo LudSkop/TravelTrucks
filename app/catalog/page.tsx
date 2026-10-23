@@ -59,7 +59,7 @@ export default function CatalogPage() {
   });
 
   return (
-    <main className={css.catalog}>
+    <div className={css.catalog}>
       <Filters
         filters={filters}
         setFilters={setFilters}
@@ -73,6 +73,6 @@ export default function CatalogPage() {
         fetchNextPage={fetchNextPage}
         isFetchingNextPage={isFetchingNextPage}
       />
-    </main>
+    </div>
   );
 }
